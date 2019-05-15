@@ -1,0 +1,53 @@
+div#address_book {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.book {
+    margin: 15px;
+    min-width: 320px;
+    text-align: center;
+    height: 318px;
+}
+
+div.book button {
+    margin: 10px 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0px;
+    color: #fff;
+    background-color: #000;
+    padding: 10px 15px;
+    box-shadow: none;
+    border: 1px solid #000;
+}
+
+h1 {
+    text-align: center;
+}
+
+.name {
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.info_card {
+    display: none;
+}
+
+.show_card {
+    display: block !important;
+}
+
+img {
+    margin-bottom: 10px;
+}
+
+.female {
+    background: #EAAFB0;
+}
+
+.male {
+    background: #76BEE5;
+}

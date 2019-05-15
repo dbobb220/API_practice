@@ -19,19 +19,34 @@ const getUsersOnload = () => {
     fetch('https://randomuser.me/api/?results=50')
         .then(res => res.json())
         .then(data => {
+            // put results into an array
             arrayOfUsers = data.results;
+            // sort users alphabetically by first name
+            arrayOfUsers.sort((a, b) => a.name.first < b.name.first ? -1 : 1);
+            // send array into function to add to DOM
             postUsers(arrayOfUsers);
         })
 }
 
-postUsers = (array) => {
-    array.sort((a, b) => a.name.first < b.name.first ? -1 : 1);
+const postUsers = (array) => {
+    // loop through each user
     array.forEach( (val, idx) => {
+        // create div element
        holderCard = document.createElement('div')
+       // add class for styling
+       holderCard.className = 'book';
+       val.gender === 'female' ? holderCard.setAttribute('class', 'female book') : holderCard.setAttribute('class', 'male book');
+       // add first/last name and image plus button w/ click function for specified index
        holderCard.innerHTML = 
-       `<div>${val.name.first} ${val.name.last}</div>
+       `<div class="name">${val.name.first} ${val.name.last}</div>
         <div>
-            <img src="${val.picture.medium}">
+            <img src="${val.picture.large}">
+            <div class="info_card" id="user${idx}">
+                ${val.email}<br>
+                ${val.phone}<br>
+                ${val.location.street}<br>
+                ${val.location.city}, ${val.location.state}<br>
+            </div>
         </div>
         <div>
             <button onclick="moreInfo(${idx})">See More Info</button>
@@ -41,8 +56,12 @@ postUsers = (array) => {
     });
 }
 
+const moreInfo = (id) => {
+    let card = document.querySelector(`#user${id}`);
+    card.setAttribute('class', 'show_card');
+}
 
-
+// TODO remove this as this is for the button logic
 // const getUsers = () => {
 //     fetch('https://randomuser.me/api/')
 //       .then(res => res.json())
