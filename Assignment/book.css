@@ -32,12 +32,13 @@ h1 {
     margin: 10px 0;
 }
 
+
 .info_card {
     display: none;
 }
 
 .show_card {
-    display: block !important;
+    display: block;
 }
 
 img {

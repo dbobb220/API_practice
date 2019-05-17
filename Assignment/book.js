@@ -34,7 +34,6 @@ const postUsers = (array) => {
         // create div element
        holderCard = document.createElement('div')
        // add class for styling
-       holderCard.className = 'book';
        val.gender === 'female' ? holderCard.setAttribute('class', 'female book') : holderCard.setAttribute('class', 'male book');
        // add first/last name and image plus button w/ click function for specified index
        holderCard.innerHTML = 
@@ -61,6 +60,7 @@ const moreInfo = (id) => {
     card.setAttribute('class', 'show_card');
 }
 
+setAttribute('style', 'display:block;')
 // TODO remove this as this is for the button logic
 // const getUsers = () => {
 //     fetch('https://randomuser.me/api/')
